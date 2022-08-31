@@ -5,37 +5,44 @@ namespace Palin_Ident
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Console.WriteLine("\n\tplaceholder_welcome\n\n\tplaceholder_inputRequest");
+            Console.WriteLine("\n\t" + Textpatch.welcomeMsg + 
+                              "\n\n" + Textpatch.briefMsg + 
+                              "\n" + Textpatch.aboutPalinMsg + 
+                              "\n\n\n" + Textpatch.inputReqMsg);
 
-            string inputWord = Console.ReadLine();
+            string inputQuery0 = Console.ReadLine().ToLower();
 
-            char[] inputChar = inputWord.ToCharArray();
+            char[] inputQuery2 = inputQuery0.ToCharArray();
+            Array.Reverse(inputQuery2);
+            string reversedQuery = new string(inputQuery2);
 
-            int inputCount = inputChar.Length;
+            int reversedHash = reversedQuery.GetHashCode();
+            int originalHash = inputQuery0.GetHashCode();
 
-            bool evenCount = (inputCount % 2 == 0);
-
-            Char[] firstHalf = (inputChar.Length / 2);
-
-            if (evenCount == true)
+            if (reversedHash == originalHash)
             {
-               
+                Console.WriteLine(Textpatch.palinTrueMsg);
             }
             else
             {
-                //Console.WriteLine("ungerade");
+                Console.WriteLine(Textpatch.palinFalseMsg);
             }
 
-           
 
-            Console.WriteLine(inputChar);
-          
+            Console.WriteLine(Textpatch.returnMsg);
+            Console.ReadKey();
+            Console.Clear();
+            Main();
 
 
+            // Menu for Clear
+            //          Another try
+            // display hash
+            // display restrictions
 
-
+            // restrictions/ exeptin handling
         }
     }
 }
