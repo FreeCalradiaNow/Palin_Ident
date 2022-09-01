@@ -20,51 +20,63 @@ namespace Palin_Ident
                               "\n" + Text_Bowl.dashedLineMediumDesign +
                               "\n\n\n" + Text_Bowl.inputReqMsg);
 
-            string inputQuery0 = Console.ReadLine().ToLower();
-            inputQuery0 = inputQuery0.Replace(" ", String.Empty);
+        Inputrequest:
+            string inputQuery0 = Console.ReadLine();
+            string inputQuery1 = new string(inputQuery0.ToLower().Replace(" ", String.Empty));
+            
+            int inputLength = inputQuery1.Length;
+            
+            // controls the input (instead of switch case or exception handling)
+            if(inputLength > 249)
+            {
+                Console.WriteLine(Text_Bowl.inputLengthOver250Msg);
+                goto Inputrequest;
+            }
+            else if (inputLength <= 0)
+            {
+                Console.WriteLine(Text_Bowl.inputLengthZero);
+                goto Inputrequest;
+            }
+            else
+            {
+                goto Inquiry;
+            }
 
-            // TODO: exception handling
-            //         - falls der Input ohne eingegebene Zeihen kommt
-            //         - falls der Input x Zeichen überschreitet
-            // TODO: Oder MaxLength der eingabe direct begrenzenen mit Msg über cw
-            // TODO: Whitespaces nach der Eingabe automatisch erasen?
-
-
-            char[] inputQuery2 = inputQuery0.ToCharArray();
+            Inquiry:
+            char[] inputQuery2 = inputQuery1.ToCharArray();
             Array.Reverse(inputQuery2);
             string reversedQuery = new string(inputQuery2);
 
-
             int reversedHash = reversedQuery.GetHashCode();
-            int originalHash = inputQuery0.GetHashCode();
+            int originalHash = inputQuery1.GetHashCode();
 
 
             if (reversedHash == originalHash)
             {
                 Console.WriteLine("\n\n\n\n" + Text_Bowl.dashedLineLongDesign + 
-                                  "\n\t\t" + Text_Bowl.palinTrueMsg);
+                                  "\n\t\t" + string.Format(Text_Bowl.palinTrueMsg, inputQuery0));
             }
             else
             {
-                Console.WriteLine("\n\n\n\n" + 
-                                  Text_Bowl.palinFalseMsg +
-                                  "\n" + Text_Bowl.dashedLineMediumDesign);
+                Console.WriteLine("\n\n\n\n" + Text_Bowl.dashedLineLongDesign +
+                                  "\n\t\t" + string.Format(Text_Bowl.palinFalseMsg, inputQuery0)); 
             }
 
 
 
-            Console.WriteLine("\n\n\n\t\t" + Text_Bowl.closedLineMediumDesign +
+            Console.WriteLine("\n\n\n\t\t\t" + Text_Bowl.closedLineMediumDesign +
                                "\n\t\t" + Text_Bowl.returnMsg +
-                               "\n\n\n\n\n" + Text_Bowl.closedLineLongDesign);
+                               "\n" + Text_Bowl.closedLineLongDesign);
             Console.ReadKey();
             Console.Clear();
             Main();
 
 
-            // TODO: Menu for -Clear
-            //                -Another try
-            //                -display hash
+            // TODO: create fix Menu for -Clear
+            //                           -Another try
+            //                           -display hash
             //  maybe via case block
+            //  watchout: Clear(); not only wipes the screen but also the content of the variables
         }
     }
 }
