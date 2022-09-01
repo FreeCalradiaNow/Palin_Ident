@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace Palin_Ident
 {
@@ -7,9 +8,12 @@ namespace Palin_Ident
     {
         static void Main()
         {
-            Console.WriteLine(Text_Bowl.logoDesign + // Logo broken af
-                              "\n\t" + Text_Bowl.welcomeMsg + 
-                              "\n" + Text_Bowl.dotLineLongDesign +
+            Text_Bowl.colorSettingDesign();
+
+            Console.WriteLine("\n\t\t" + Text_Bowl.dotLineMediumPlusDesign +
+                              Text_Bowl.logoDesign + 
+                              Text_Bowl.welcomeMsg + 
+                              "\n\t\t" + Text_Bowl.dotLineMediumPlusDesign +
                               "\n\n\n\n" + Text_Bowl.briefMsg +
                               "\n" + Text_Bowl.dotLineMediumDesign +
                               "\n\n\n" + Text_Bowl.aboutPalinMsg +
@@ -18,8 +22,11 @@ namespace Palin_Ident
 
             string inputQuery0 = Console.ReadLine().ToLower();
 
-            // Wenn Input Empty catch exeption
-            // Wenn Input über x Zeichen catch exeption
+            // TODO: exception handling
+            //         - falls der Input ohne eingegebene Zeihen kommt
+            //         - falls der Input x Zeichen überschreitet
+            // TODO: Oder MaxLength der eingabe direct begrenzenen mit Msg über cw
+            // TODO: Whitespaces nach der Eingabe automatisch erasen?
 
             char[] inputQuery2 = inputQuery0.ToCharArray();
             Array.Reverse(inputQuery2);
@@ -35,7 +42,9 @@ namespace Palin_Ident
             }
             else
             {
-                Console.WriteLine(Text_Bowl.palinFalseMsg);
+                Console.WriteLine("\n\n\n\n" + 
+                                  Text_Bowl.palinFalseMsg +
+                                  "\n" + Text_Bowl.dashedLineMediumDesign);
             }
 
 
@@ -47,10 +56,10 @@ namespace Palin_Ident
             Main();
 
 
-            // Menu for -Clear
-            //          -Another try
-            //          -display hash
-            // maybe via case block
+            // TODO: Menu for -Clear
+            //                -Another try
+            //                -display hash
+            //  maybe via case block
         }
     }
 }
