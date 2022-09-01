@@ -11,7 +11,7 @@ namespace Palin_Ident
             Text_Bowl.colorSettingDesign();
 
             Console.WriteLine("\n\t\t" + Text_Bowl.dotLineMediumPlusDesign +
-                              Text_Bowl.logoDesign + 
+                              "\n" + Text_Bowl.logoDesign + 
                               Text_Bowl.welcomeMsg + 
                               "\n\t\t" + Text_Bowl.dotLineMediumPlusDesign +
                               "\n\n\n\n" + Text_Bowl.briefMsg +
@@ -21,6 +21,7 @@ namespace Palin_Ident
                               "\n\n\n" + Text_Bowl.inputReqMsg);
 
             string inputQuery0 = Console.ReadLine().ToLower();
+            inputQuery0 = inputQuery0.Replace(" ", String.Empty);
 
             // TODO: exception handling
             //         - falls der Input ohne eingegebene Zeihen kommt
@@ -28,12 +29,15 @@ namespace Palin_Ident
             // TODO: Oder MaxLength der eingabe direct begrenzenen mit Msg über cw
             // TODO: Whitespaces nach der Eingabe automatisch erasen?
 
+
             char[] inputQuery2 = inputQuery0.ToCharArray();
             Array.Reverse(inputQuery2);
             string reversedQuery = new string(inputQuery2);
 
+
             int reversedHash = reversedQuery.GetHashCode();
             int originalHash = inputQuery0.GetHashCode();
+
 
             if (reversedHash == originalHash)
             {
@@ -46,6 +50,7 @@ namespace Palin_Ident
                                   Text_Bowl.palinFalseMsg +
                                   "\n" + Text_Bowl.dashedLineMediumDesign);
             }
+
 
 
             Console.WriteLine("\n\n\n\t\t" + Text_Bowl.closedLineMediumDesign +

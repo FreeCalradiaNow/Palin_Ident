@@ -5,7 +5,8 @@ using System.Text;
 namespace Palin_Ident
 {
     class Text_Bowl
-    {
+    {   
+        // stringvariables as resources light
         public static string welcomeMsg = "\n\t\t...........................................\n\t\tWelcome to the great Palindrome-Identifier!";
         public static string briefMsg = " With the help of this program you may identify if a word is an palindrome or not.";
         public static string aboutPalinMsg = "\tA palindrome is a word, number, phrase, or other sequence of characters which reads the same backward as forward,such as madam or racecar.";
@@ -22,12 +23,15 @@ namespace Palin_Ident
         public static string dashedLineMediumDesign = "------------------------------------";
         public static string dotLineMediumPlusDesign = "...........................................";
         public static string dotLineMediumDesign = "....................................";
-        public static string logoDesign = "       ____    __                            __    ___           _____\n" +
-                                          "      /  _ \\  /_ \\  |    |    /|   /      | |  \\  |   |   /|   /|  | |   \n" +
-                                          "      |____| |____| |    |   / |  /   __  | |   | |___   / |  /    |   \n" +
-                                          " >>>> |      |    | |    |  /  | /   <MW> | | | | |     /  | /     |   <<<<\n" +
-                                          "      |      |    | |___ | /   |/         | |__/  |___|/   |/      |  ";
+        public static string logoDesign = "        ____    __                            __    ___         _____\n" +
+                                          "       /  _ \\  /_ \\  |    |    /|   /      | |  \\  |   |   /|  |  | |   \n" +
+                                          " <     |____| |____| |    |   / |  /   __  | |   | |___   / |  /  |       >\n" +
+                                          "  >>>> |      |    | |    |  /  | /   <MW> | | | | |     /  | /   |   <<<<\n" +
+                                          " <     |      |    | |___ | /   |/         | |__/  |___|/   |/    |       >";
 
+
+
+        // changes background- and fontcolor of the concole
         public static void colorSettingDesign()
         {
             // TODO: exception handling
@@ -43,6 +47,11 @@ namespace Palin_Ident
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.ForegroundColor = ConsoleColor.Green;
             }
+        }
+
+        public static void removeWhites()
+        {
+
         }
     }
 
