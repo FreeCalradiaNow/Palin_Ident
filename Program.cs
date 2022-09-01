@@ -70,7 +70,7 @@ namespace Palin_Ident
             Console.ReadKey();
             Console.Clear();
             Main();
-
+            //Environment.Exit(0);
 
             // TODO: create fix Menu for -Clear
             //                           -Another try
